@@ -19,11 +19,22 @@ class _HomeScreenState extends State<HomeScreen> {
         title: const Text("Animated Naigation",),
       ),
       body: Center(
-        child: ElevatedButton(
-            onPressed: () {
-              navigateTo(context, const AnotherScreen());
-            },
-            child: const Text("Go To Another Screen")),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+                onPressed: () {
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => const AnotherScreen(),));
+                },
+                child: const Text("Normal Router")),
+            const SizedBox(height: 30,),
+            ElevatedButton(
+                onPressed: () {
+                navigateTo(context, const AnotherScreen());
+                },
+                child: const Text("Animated Router")),
+          ],
+        ),
       ),
     );
   }
